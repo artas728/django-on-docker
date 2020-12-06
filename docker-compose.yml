@@ -20,6 +20,11 @@ services:
       - POSTGRES_USER=hello_django
       - POSTGRES_PASSWORD=hello_django
       - POSTGRES_DB=hello_django_dev
+  redis:
+    image: sameersbn/redis:4.0.9-3
+    ports:
+      - 6379:6379
+    command: "redis-server --appendonly yes --protected-mode no"
 
 volumes:
   postgres_data:
